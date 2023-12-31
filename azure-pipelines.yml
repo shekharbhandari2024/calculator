@@ -7,7 +7,9 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+ name: az400demo-pool
+ demands:
+ - agent.name -equals az400demo-agent
 
 steps:
 - task: NodeTool@0
@@ -19,5 +21,5 @@ steps:
     npm install
     npm run build
     npm test
-displayName: 'npm install, build, and test'
+  displayName: 'npm install, build, and test'
 
